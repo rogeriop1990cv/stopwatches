@@ -1,6 +1,18 @@
+@font-face {
+  font-family: 'DS-DIGIT';
+  src: local('DS-DIGIT'),
+  url('./fonts/dsDigital/DS-DIGIT.TTF') format('truetype');
+  font-weight: bold;  
+}
+
 * {
   margin: 0;
   padding: 0;
+}
+
+body{
+  background: black;
+  color: white;
 }
 
 
@@ -18,6 +30,7 @@
   width: 100px;
 }
 .times p {
+  font-family: DS-DIGIT;
   font-size: 100px;
 }
 

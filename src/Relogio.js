@@ -67,8 +67,13 @@ export default class Relogio extends React.Component {
   }
 
   resetar = () => {
+    clearInterval(this.contagemRegressiva)
     this.setState({
+      minutes: '00',
+      seconds: '00',
+      milliseconds: '000',
       started: false,
+      parado: true,
     })
   }
 

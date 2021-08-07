@@ -33,6 +33,7 @@ body{
 .times {
   display: flex;
   width: 400px;
+  margin: 10px;
 }
 
 .minSecs {

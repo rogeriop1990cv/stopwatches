@@ -4,28 +4,42 @@ export default class Relogio extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      time: "00:00",
+      time: '',
+      milliseconds: '',
       started: false,
     }
 
 
   }
   
-  iniciar = (valorInput) => {
+  iniciar = (minutos, segundos) => {
     this.setState({
       started: true,
     })
-    // const time = new Date(0)
-    // const 
-    // time.setHours(0)
-    // time.setSeconds(10);
+    const time = new Date(0)
+      time.setHours (0);
+      time.setMinutes(minutos)
+      time.setSeconds(segundos)
+
+    this.contagemRegressiva = setInterval(() => {
+      time.setMilliseconds(time.getMilliseconds() -4)
+      const timeString = time.toTimeString().slice(3, 8);
+      this.setState({
+        time: `${timeString}`,
+        milliseconds: `${time.getMilliseconds()}`,
+      })
+      if(timeString === '00:00'){
+            clearInterval(this.contagemRegressiva)
+          }
+    }, 1)
+
   }
 
   updatetimr = () => {
   }
 
   parar = () => {
-    clearInterval(this.createClock)
+    clearInterval(this.contagemRegressiva)
     console.log('parou')
   }
 
@@ -37,10 +51,11 @@ export default class Relogio extends React.Component {
 
   render() {
     document.title = "BeeOnTime"
-    const { time, started } = this.state;
+    const { time, started, milliseconds } = this.state;
     const timer = (
       <section className="times" >
-        <p name="times" >{ time }</p>
+        <p className="minSecs" >{ time }.</p>
+        <p className="milliseconds">{ milliseconds }</p>
       </section>
     )
     const inputter = (
@@ -55,7 +70,7 @@ export default class Relogio extends React.Component {
       <section className="main-time">
           {started ? timer : inputter}
           <section className="menu-time">
-            <p className="input-time-iniciar" onClick={ this.iniciar }>Iniciar</p>
+            <p className="input-time-iniciar" onClick={ () => this.iniciar(5,0) }>Iniciar</p>
             <p className="input-time-parar" onClick={ this.parar }>Parar</p>
             <p className="input-time-resetar" onClick={ this.resetar }>Resetar</p>
           </section>

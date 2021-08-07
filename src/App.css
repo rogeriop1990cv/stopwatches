@@ -29,9 +29,23 @@ body{
   height: 100px;
   width: 100px;
 }
-.times p {
+
+.times {
+  display: flex;
+  width: 400px;
+  margin: 10px;
+}
+
+.minSecs {
   font-family: DS-DIGIT;
   font-size: 100px;
+}
+
+.milliseconds {
+  font-family: DS-DIGIT;
+  font-size: 50px;
+  align-self: flex-end;
+  margin-bottom: 10px;
 }
 
 .input-time {

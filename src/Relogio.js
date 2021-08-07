@@ -49,7 +49,7 @@ export default class Relogio extends React.Component {
     })
 
     if ( minutes === '00' && seconds === '00' && milliseconds === '000' ) {
-      this.timerLogica(minutos, segundos)
+      this.timerLogica(minutos, segundos, milliseconds)
     } else {
       this.timerLogica(minutes, seconds, milliseconds)
     }

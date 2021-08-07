@@ -11,15 +11,17 @@ export default class Relogio extends React.Component {
     const { time } = this.state;
     return (
       <section className="main-time">
-        <section className="times" >
-          <p name="times" >{ time }</p>
-        </section>
-        <section>
-          <input type="text" className="input-time"/>
-          <p className="input-time-iniciar">Iniciar</p>
-          <p className="input-time-parar">Parar</p>
-          <p className="input-time-resetar">Resetar</p>
-        </section>
+          <section className="times" >
+            <p name="times" >{ time }</p>
+          </section>
+            <section className="input-time">
+              <input type="text" placeholder="Digite aqui: " />
+            </section>
+          <section className="menu-time">
+            <p className="input-time-iniciar">Iniciar</p>
+            <p className="input-time-parar">Parar</p>
+            <p className="input-time-resetar">Resetar</p>
+          </section>
       </section>
     )
   }

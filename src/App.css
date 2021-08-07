@@ -3,3 +3,38 @@
   padding: 0;
 }
 
+
+.main-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+.main-time div {
+  background-color: aqua;
+  height: 100px;
+  width: 100px;
+}
+.times p {
+  font-size: 100px;
+}
+
+.input-time {
+  margin: 10px;
+}
+
+.input-time input{
+  text-align: center;
+}
+.menu-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-time p{
+  margin-top: 5px;
+  margin-right: 10px;
+}

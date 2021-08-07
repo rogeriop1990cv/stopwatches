@@ -30,6 +30,7 @@ export default class Relogio extends React.Component {
   }
 
   render() {
+    document.title = "BeeOnTime"
     const { time } = this.state;
     return (
       <section className="main-time">

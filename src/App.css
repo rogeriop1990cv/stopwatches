@@ -35,12 +35,29 @@ body{
 }
 
 .input-time {
+  display: flex;
   margin: 10px;
 }
 
 .input-time input{
   text-align: center;
+  width: 110px;
+  font-family: DS-DIGIT;
+  font-size: 100px;
+  color: #fff;
+  background-color: black;
+  border: none;
 }
+
+.input-time input:focus {
+  outline: none;
+}
+
+.input-time p {
+  font-family: DS-DIGIT;
+  font-size: 100px;
+}
+
 .menu-time {
   display: flex;
   justify-content: center;

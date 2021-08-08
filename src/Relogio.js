@@ -4,11 +4,15 @@ export default class Relogio extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      minInput: '00',
+      secInput: '00',
       minutes: '00',
       seconds: '00',
       milliseconds: '000',
       started: false,
       parado: true,
+      reinicio: false,
+      retomar: false,
     }
   }
 
@@ -35,28 +39,34 @@ export default class Relogio extends React.Component {
           time: `00:00`,
           milliseconds: `000`,
           parado: true,
+          retomar: false,
+          reinicio: true,
         })
       }
     }, 1)
   }
 
   iniciar = () => {
-    const { minutes, seconds, milliseconds } = this.state;
-    if(minutes+seconds === '0000' ){
+    const { minInput, secInput, milliseconds } = this.state;
+    if(minInput+secInput === '0000' ){
       return
     }
     
     this.setState({
       started: true,
       parado: false,
+      reinicio: true,
+      retomar: false,
     })
-    this.timerLogica(minutes, seconds, milliseconds)
+    this.timerLogica(minInput, secInput, milliseconds)
   }
 
   parar = () => {
     clearInterval(this.contagemRegressiva)
     this.setState({
       parado: true,
+      reinicio: true,
+      retomar: true,
     })
   }
 
@@ -68,7 +78,39 @@ export default class Relogio extends React.Component {
       milliseconds: '000',
       started: false,
       parado: true,
+      reinicio: false,
+      retomar: false,
     })
+  }
+
+  retomar = () => {
+    const { minutes, seconds, milliseconds } = this.state;
+    if(minutes+seconds === '0000' ){
+      return
+    }
+
+    this.setState({
+      started: true,
+      parado: false,
+      reinicio: true,
+      retomar: false,
+    })
+    this.timerLogica(minutes, seconds, milliseconds)
+  }
+
+  reiniciar = () => {
+    clearInterval(this.contagemRegressiva)
+    this.setState({
+      minutes: '00',
+      seconds: '00',
+      milliseconds: '000',
+      started: true,
+      parado: false,
+      reinicio: true,
+      retomar: false,
+    })
+    const { minInput, secInput } = this.state;
+    this.timerLogica(minInput, secInput, 1);
   }
 
   onChangeInput = (event) => {
@@ -76,6 +118,8 @@ export default class Relogio extends React.Component {
     // so aceita numeros.
     value = value.replace(/[a-zA-Z]/g, '00')
     this.setState({ [name]: value })
+    if (name === 'minutes') this.setState({ minInput: value });
+    if (name === 'seconds') this.setState({ secInput: value });
   }
 
   onBlueInput = (e) => {
@@ -83,6 +127,8 @@ export default class Relogio extends React.Component {
     if (value.length === 1) { value = `0${value}` }
     if (value.length === 0) { value = `00` }
     this.setState({ [name]: value })
+    if (name === 'minutes') this.setState({ minInput: value });
+    if (name === 'seconds') this.setState({ secInput: value });
   }
 
   onFocusSelect = (e) => {
@@ -91,7 +137,18 @@ export default class Relogio extends React.Component {
 
   render() {
     document.title = "BeeOnTime"
-    const { minutes, seconds, started, milliseconds, parado } = this.state;
+    const { 
+      minInput,
+      secInput,
+      minutes,
+      seconds,
+      started,
+      milliseconds,
+      parado,
+      reinicio,
+      retomar,
+     } = this.state;
+
     const timer = (
       <section className="times" >
         <p className="minSecs" >{`${minutes}:${seconds}`}.</p>
@@ -104,7 +161,7 @@ export default class Relogio extends React.Component {
         name="minutes"
           type="text"
           maxLength="2"
-          value={minutes}
+          value={minInput}
           placeholder="Minutos"
           onChange={this.onChangeInput}
           onFocus={this.onFocusSelect}
@@ -115,7 +172,7 @@ export default class Relogio extends React.Component {
           maxLength="2"
           type="text"
           placeholder="Segundos"
-          value={seconds}
+          value={secInput}
           onChange={this.onChangeInput}
           onFocus={this.onFocusSelect}
           onBlur={this.onBlueInput}
@@ -131,6 +188,20 @@ export default class Relogio extends React.Component {
         onClick={() => this.iniciar()}>Iniciar
       </p>
     )
+    const reiniciar = (
+      <p
+        className="input-time-reiniciar"
+        onClick={() => this.reiniciar()}>Reiniciar
+      </p>
+    )
+
+    const retomado = (
+      <p
+        className="input-time-reiniciar"
+        onClick={() => this.retomar()}>Retomar
+      </p>
+    )
+  
 
     return (
         <>
@@ -140,7 +211,10 @@ export default class Relogio extends React.Component {
                 <section className="main-time">
           {started ? timer : inputter}
           <section className="menu-time">
-            {parado ? iniciar : parar}
+            {retomar && retomado}
+            {!parado && parar }
+            {(!retomar && !started) && iniciar}
+            {reinicio && reiniciar}
             <p className="input-time-resetar" onClick={this.resetar}>Resetar</p>
           </section>
                 </section>

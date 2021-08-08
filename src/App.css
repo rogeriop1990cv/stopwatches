@@ -1,5 +1,84 @@
+@font-face {
+  font-family: 'DS-DIGIT';
+  src: local('DS-DIGIT'),
+  url('./fonts/dsDigital/DS-DIGIT.TTF') format('truetype');
+  font-weight: bold;  
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
+body{
+  background: black;
+  color: white;
+}
+
+
+.main-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+.main-time div {
+  background-color: aqua;
+  height: 100px;
+  width: 100px;
+}
+
+.times {
+  display: flex;
+  width: 400px;
+  margin: 10px;
+}
+
+.minSecs {
+  font-family: DS-DIGIT;
+  font-size: 100px;
+}
+
+.milliseconds {
+  font-family: DS-DIGIT;
+  font-size: 50px;
+  align-self: flex-end;
+  margin-bottom: 10px;
+}
+
+.input-time {
+  display: flex;
+  margin: 10px;
+}
+
+.input-time input{
+  text-align: center;
+  width: 110px;
+  font-family: DS-DIGIT;
+  font-size: 100px;
+  color: #fff;
+  background-color: black;
+  border: none;
+}
+
+.input-time input:focus {
+  outline: none;
+}
+
+.input-time p {
+  font-family: DS-DIGIT;
+  font-size: 100px;
+}
+
+.menu-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-time p{
+  margin-top: 5px;
+  margin-right: 10px;
+}

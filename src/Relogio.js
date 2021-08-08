@@ -1,5 +1,5 @@
 import React from 'react';
-
+import logo from './beedevlogo.png'
 export default class Relogio extends React.Component {
   constructor(props) {
     super(props)
@@ -133,13 +133,18 @@ export default class Relogio extends React.Component {
     )
 
     return (
-      <section className="main-time">
-        {started ? timer : inputter}
-        <section className="menu-time">
-          {parado ? iniciar : parar}
-          <p className="input-time-resetar" onClick={this.resetar}>Resetar</p>
-        </section>
-      </section>
+        <>
+          <section className="logo">
+            <img src={ logo } alt="teste" srcset="" />
+          </section>
+                <section className="main-time">
+          {started ? timer : inputter}
+          <section className="menu-time">
+            {parado ? iniciar : parar}
+            <p className="input-time-resetar" onClick={this.resetar}>Resetar</p>
+          </section>
+                </section>
+        </>
     )
   }
 }

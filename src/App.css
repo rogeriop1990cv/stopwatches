@@ -15,6 +15,13 @@ body{
   color: white;
 }
 
+.logo img {
+  position: absolute;
+  width: 250px;
+  top: 15%;
+  left: 15%;
+  opacity: 0.2;
+}
 
 .main-time {
   display: flex;
@@ -23,6 +30,8 @@ body{
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  min-width: 450px;
+  min-height: 340px;
 }
 .main-time div {
   background-color: aqua;

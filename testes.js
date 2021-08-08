@@ -13,4 +13,3 @@ const contagemRegressiva = setInterval(() => {
   }
 
 }, 1)
-

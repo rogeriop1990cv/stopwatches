@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/stopwatches/static/css/main.37a2af8e.chunk.css",
+    "main.js": "/stopwatches/static/js/main.ad77e71e.chunk.js",
+    "main.js.map": "/stopwatches/static/js/main.ad77e71e.chunk.js.map",
+    "runtime-main.js": "/stopwatches/static/js/runtime-main.61091538.js",
+    "runtime-main.js.map": "/stopwatches/static/js/runtime-main.61091538.js.map",
+    "static/js/2.987ef855.chunk.js": "/stopwatches/static/js/2.987ef855.chunk.js",
+    "static/js/2.987ef855.chunk.js.map": "/stopwatches/static/js/2.987ef855.chunk.js.map",
+    "static/js/3.15a954c0.chunk.js": "/stopwatches/static/js/3.15a954c0.chunk.js",
+    "static/js/3.15a954c0.chunk.js.map": "/stopwatches/static/js/3.15a954c0.chunk.js.map",
+    "index.html": "/stopwatches/index.html",
+    "static/css/main.37a2af8e.chunk.css.map": "/stopwatches/static/css/main.37a2af8e.chunk.css.map",
+    "static/js/2.987ef855.chunk.js.LICENSE.txt": "/stopwatches/static/js/2.987ef855.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/stopwatches/static/media/DS-DIGIT.063ff1f7.TTF",
+    "static/media/alarm.215522b1.mp3": "/stopwatches/static/media/alarm.215522b1.mp3",
+    "static/media/beedevlogo.7be9f2b4.png": "/stopwatches/static/media/beedevlogo.7be9f2b4.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.61091538.js",
+    "static/js/2.987ef855.chunk.js",
+    "static/css/main.37a2af8e.chunk.css",
+    "static/js/main.ad77e71e.chunk.js"
+  ]
+}

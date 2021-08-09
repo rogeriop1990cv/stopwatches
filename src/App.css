@@ -91,3 +91,38 @@ body{
   margin-top: 5px;
   margin-right: 10px;
 }
+.input-time-iniciar, .input-time-reiniciar, .input-time-zerar,
+.input-time-retomar, .input-time-resetar, .input-time-parar {
+  color: #fff;
+}
+
+.input-time-reiniciar:hover {
+  cursor: pointer;
+  color: rgb(1, 196, 1);
+}
+
+.input-time-iniciar:hover {
+  cursor: pointer;
+  color: rgb(1, 196, 1);
+}
+
+.input-time-zerar:hover {
+  cursor: pointer;
+  color: rgb(1, 196, 1);
+}
+
+.input-time-retomar:hover {
+  cursor: pointer;
+  color: rgb(1, 196, 1);
+}
+
+
+.input-time-resetar:hover {
+  cursor: pointer;
+  color: rgb(1, 196, 1);
+}
+
+.input-time-parar:hover {
+  cursor: pointer;
+  color: rgb(1, 196, 1);
+}

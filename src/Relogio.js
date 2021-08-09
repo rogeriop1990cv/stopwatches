@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './beedevlogo.png'
+import alarm from './sound_fx/alarm.mp3'
 
 export default class Relogio extends React.Component {
   constructor(props) {
@@ -16,6 +17,8 @@ export default class Relogio extends React.Component {
       retomar: false,
       zerar: false,
     }
+
+    this.alarm = new Audio(alarm);
   }
 
   timerLogica = (minutos, segundos, milesegundos = 1000) => {
@@ -45,6 +48,7 @@ export default class Relogio extends React.Component {
           reinicio: true,
           zerar: false,
         })
+        this.alarm.play();
       }
     }, 1)
   }
@@ -87,6 +91,7 @@ export default class Relogio extends React.Component {
       retomar: false,
       zerar: true,
     })
+    this.alarm.pause();
   }
 
   retomar = () => {
@@ -119,6 +124,7 @@ export default class Relogio extends React.Component {
     })
     const { minInput, secInput } = this.state;
     this.timerLogica(minInput, secInput, 1);
+    this.alarm.pause();
   }
 
   zerar = () => {
